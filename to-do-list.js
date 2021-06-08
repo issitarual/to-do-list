@@ -17,7 +17,13 @@ while(state){
         console.log("============");
     }
     else if(commands[index] === 'remove'){
-        console.log("remover");
+        const remove = toDoList.map(n => n.done?"🟢 " : "🔴 " + n.task),
+        index = readlineSync.keyInSelect(remove, 'What do you want to remove?');   
+        let removed = toDoList.splice(index, 1); 
+        
+    }
+    else if(commands[index] === 'check'){
+        console.log("check");
     }
     else{
         state = false;
