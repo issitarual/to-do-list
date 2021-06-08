@@ -11,7 +11,9 @@ while(state){
     }
     else if(commands[index]  === 'list'){
         console.log("============");
-        toDoList.forEach(n => n.done? "🟢 ":"🔴")
+        for(let i = 0; i < toDoList.length; i++){
+            console.log(toDoList[i].done? "🟢 " : "🔴 " + toDoList[i].task)
+        }
         console.log("============");
     }
     else if(commands[index] === 'remove'){
