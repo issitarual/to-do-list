@@ -2,9 +2,9 @@ import readlineSync from 'readline-sync';
 
 let toDoList = [];
 let state = true;
+let commands = ['add', 'list', 'remove'],
+index = readlineSync.keyInSelect(commands, 'Type your command');
 while(state){
-    const commands = ['add', 'list', 'remove'],
-    index = readlineSync.keyInSelect(commands, 'Type your command');
     if(commands[index] === 'add'){
         let task = readlineSync.question('What do you want to do? ');
         toDoList.push({task: task, done: false});
@@ -21,7 +21,10 @@ while(state){
     }
     else{
         state = false;
+        break;
     }
+    commands = ['add', 'list', 'check', 'remove'],
+    index = readlineSync.keyInSelect(commands, 'Type your command');
 }
 
 
