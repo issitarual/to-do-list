@@ -24,7 +24,17 @@ while(state){
     }
     else if(commands[index] === 'check'){
         const check = toDoList.map(n => n.done?"🟢 " : "🔴 " + n.task),
-        index = readlineSync.keyInSelect(check, 'What todo you want to check/uncheck?');   
+        index = readlineSync.keyInSelect(check, 'What todo you want to check/uncheck?');  
+        let newList = [];
+        for(let i = 0; i < toDoList.length; i++){
+            if(i === index){
+                newList.push({task: toDoList[i].task, done: !toDoList[i].done});
+            }
+            else{
+                newList.push(toDoList[i]);
+            }
+        }
+        toDoList = newList;
     }
     else{
         state = false;
