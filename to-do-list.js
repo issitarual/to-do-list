@@ -20,10 +20,11 @@ while(state){
         const remove = toDoList.map(n => n.done?"🟢 " : "🔴 " + n.task),
         index = readlineSync.keyInSelect(remove, 'What do you want to remove?');   
         let removed = toDoList.splice(index, 1); 
-        
+
     }
     else if(commands[index] === 'check'){
-        console.log("check");
+        const check = toDoList.map(n => n.done?"🟢 " : "🔴 " + n.task),
+        index = readlineSync.keyInSelect(check, 'What todo you want to check/uncheck?');   
     }
     else{
         state = false;
